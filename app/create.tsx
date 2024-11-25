@@ -8,7 +8,7 @@ const getRandomNumber = () => {
   return Math.floor(Math.random() * 10000);
 }
 const CreateRoom = () => {
-
+  const randomNumber = getRandomNumber().toString();
   const copyToClipboard = async (data:string) => {
     await Clipboard.setStringAsync(data);
   };
@@ -16,8 +16,8 @@ const CreateRoom = () => {
   return (
     <View className='flex flex-row items-center justify-center h-full'>
         <Text className='text-2xl font-bold'>Room Code:</Text>
-        <Pressable onPress={() => copyToClipboard(getRandomNumber().toString())}>
-        <Text className='rounded-lg text-2xl font-bold bg-[#4b313748] p-2'>{getRandomNumber()}  <Entypo name="clipboard" size={24} color="#A56474" /></Text>
+        <Pressable onPress={() => copyToClipboard(randomNumber)}>
+        <Text className='rounded-lg text-2xl font-bold bg-[#4b313748] p-2'>{randomNumber}  <Entypo name="clipboard" size={24} color="#A56474" /></Text>
         </Pressable>
        
     </View>
