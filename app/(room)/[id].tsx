@@ -4,8 +4,10 @@ import { Stack, useLocalSearchParams } from 'expo-router'
 import React, { useState } from 'react'
 import { View,Text, FlatList, TextInput, Pressable, ImageBackground } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { useStore } from '@/store/messages';
 
 const User = () => {
+  const { addMessage: storeAddMessage } = useStore(()=>({addMessage: (message: string) => {}}));
   const {id,name} = useLocalSearchParams();
   const [sender, setsender] = useState(true);
   const [msg, setmsg] = useState("");
